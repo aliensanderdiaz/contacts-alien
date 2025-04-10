@@ -1,0 +1,16 @@
+@for (contacto of contactos; track contacto._id) {
+  <div [ngStyle]="{'background-color': contacto.edited ? 'green': ''}">
+    <span>{{ $index + 1 }}</span>
+    <input type="text" [(ngModel)]="contacto.group" name="group">
+    <input type="text" [(ngModel)]="contacto.name" name="name">
+    <input type="text" [(ngModel)]="contacto.phone" name="phone">
+    <input type="text" [(ngModel)]="contacto.description" name="description">
+    <input type="checkbox" [(ngModel)]="contacto.whatsapp" name="whatsapp">
+    <a href="https://www.google.com/search?q={{ contacto.phone }}" target="_blank" rel="noopener noreferrer">G</a> - 
+    <a href="https://t.me/+57{{ contacto.phone }}" target="_blank" rel="noopener noreferrer">T</a> - 
+    <a href="https://wa.me/57{{ contacto.phone }}" target="_blank" rel="noopener noreferrer">W</a> - 
+    <a href="https://www.facebook.com/search/posts/?q={{ contacto.phone }}" target="_blank" rel="noopener noreferrer">F</a>
+    <button (click)="guardarContacto($index)">Guardar</button>
+    <button (click)="eliminarContacto($index)">Eliminar</button>
+  </div>
+}
